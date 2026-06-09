@@ -1,0 +1,44 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Java / Maven
+**/target/
+**/.mvn/
+
+# Node / Vue
+**/node_modules/
+**/dist/
+**/.cache/
+**/.eslintcache
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Generated local artifact directories accidentally created by shell expansion
+flash-sale-web-admin/src/{views,components,store,router,api,utils,assets}/
+flash-sale-web-user/src/{views,components,store,router,api,utils,assets}/
