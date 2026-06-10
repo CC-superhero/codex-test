@@ -1,0 +1,12 @@
+<view class="page">
+  <view wx:if="{{!list.length}}" class="empty">暂无积分记录</view>
+  <view wx:for="{{list}}" wx:key="id" class="card">
+    <view class="row">
+      <view class="section-title">{{item.typeText}}</view>
+      <view class="{{item.changeAmount >= 0 ? 'price' : 'muted'}}">
+        {{item.changeAmount >= 0 ? '+' : ''}}{{item.changeAmount}}
+      </view>
+    </view>
+    <view class="muted">{{item.createTime}}</view>
+  </view>
+</view>

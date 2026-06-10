@@ -1,0 +1,9 @@
+<view class="page">
+  <view wx:if="{{!list.length}}" class="empty">暂无仓库商品</view>
+  <view wx:for="{{list}}" wx:key="id" class="card">
+    <view class="section-title">{{item.productName}}</view>
+    <view class="price">¥{{item.price}}</view>
+    <view class="muted" style="margin: 12rpx 0 18rpx;">来源：{{item.source === 1 ? '秒杀所得' : '转卖购买'}}</view>
+    <button class="btn-secondary" data-id="{{item.id}}" bindtap="goList">上架到转卖市场</button>
+  </view>
+</view>

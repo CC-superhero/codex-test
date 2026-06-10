@@ -1,0 +1,4 @@
+.price,
+.muted {
+  font-weight: 700;
+}

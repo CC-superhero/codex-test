@@ -1,0 +1,19 @@
+<view class="page">
+  <view wx:if="{{!list.length}}" class="empty">暂无上架商品</view>
+  <view wx:for="{{list}}" wx:key="id" class="card">
+    <view class="row">
+      <view class="section-title">{{item.productName}}</view>
+      <view class="tag tag-warn">已上架</view>
+    </view>
+    <view class="price">¥{{item.price}}</view>
+    <button
+      class="btn-light"
+      style="margin-top: 20rpx;"
+      data-id="{{item.id}}"
+      loading="{{submittingId === item.id}}"
+      bindtap="handleDelist"
+    >
+      下架
+    </button>
+  </view>
+</view>

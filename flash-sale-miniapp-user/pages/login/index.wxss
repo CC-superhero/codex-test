@@ -1,0 +1,9 @@
+.we-input {
+  background: #f9fafb;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+button {
+  width: 100%;
+}

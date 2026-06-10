@@ -1,0 +1,33 @@
+{
+  "appid": "wx6ddbebb1767d8ccc",
+  "projectname": "flash-sale-miniapp-user",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "",
+  "srcMiniprogramRoot": "",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": false,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmManually": false,
+    "ignoreUploadUnusedFiles": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "condition": false
+  },
+  "condition": {},
+  "libVersion": "3.16.1",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

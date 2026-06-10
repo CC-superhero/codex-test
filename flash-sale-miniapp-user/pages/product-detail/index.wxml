@@ -1,0 +1,30 @@
+<view class="page">
+  <view class="card">
+    <view class="row">
+      <view class="section-title">{{product.name}}</view>
+      <view
+        class="tag {{product.status === 1 ? 'tag-danger' : product.status === 0 ? 'tag-warn' : 'tag-ok'}}"
+      >
+        {{product.status === 0 ? '未开始' : product.status === 1 ? '进行中' : '已结束'}}
+      </view>
+    </view>
+    <view class="price">¥{{product.price}}</view>
+    <view class="muted" style="margin-top: 12rpx;">库存：{{product.remainStock}} / {{product.totalStock}}</view>
+    <view class="muted" style="margin-top: 12rpx;">{{product.startTime}} ~ {{product.endTime}}</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">抵扣信息</view>
+    <input class="we-input" placeholder="优惠券 ID（可选）" data-field="couponId" value="{{couponId}}" bindinput="onInput" />
+    <input class="we-input" placeholder="使用积分（可选）" data-field="pointsUsed" value="{{pointsUsed}}" bindinput="onInput" />
+    <button
+      class="btn-primary"
+      loading="{{loading}}"
+      disabled="{{product.status !== 1}}"
+      bindtap="handleBuy"
+      style="margin-top: 24rpx;"
+    >
+      {{product.status === 1 ? '立即抢购' : product.status === 0 ? '尚未开始' : '活动已结束'}}
+    </button>
+  </view>
+</view>

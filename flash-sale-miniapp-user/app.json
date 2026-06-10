@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/market/index",
+    "pages/mine/index",
+    "pages/login/index",
+    "pages/register/index",
+    "pages/product-detail/index",
+    "pages/inventory/index",
+    "pages/seller-inventory/index",
+    "pages/list-product/index",
+    "pages/coupons/index",
+    "pages/points/index",
+    "pages/invite/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "Flash Sale",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f6fa",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#8a8f98",
+    "selectedColor": "#e63946",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/market/index",
+        "text": "市场"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

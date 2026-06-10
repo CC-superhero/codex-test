@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="card">
+    <view class="section-title">用户注册</view>
+    <input class="we-input" placeholder="昵称（必填）" data-field="nickname" value="{{form.nickname}}" bindinput="onInput" />
+    <input class="we-input" placeholder="邀请码（必填）" data-field="inviteCode" value="{{form.inviteCode}}" bindinput="onInput" />
+    <input class="we-input" placeholder="真实姓名（选填）" data-field="realName" value="{{form.realName}}" bindinput="onInput" />
+    <input class="we-input" placeholder="手机号（选填）" data-field="phone" value="{{form.phone}}" bindinput="onInput" />
+    <input class="we-input" placeholder="地址（选填）" data-field="address" value="{{form.address}}" bindinput="onInput" />
+    <input class="we-input" placeholder="银行卡号（选填）" data-field="bankCard" value="{{form.bankCard}}" bindinput="onInput" />
+    <input class="we-input" placeholder="身份证号（选填）" data-field="idCard" value="{{form.idCard}}" bindinput="onInput" />
+    <button class="btn-primary" loading="{{loading}}" bindtap="handleRegister" style="margin-top: 24rpx;">
+      注册
+    </button>
+  </view>
+</view>

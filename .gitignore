@@ -32,6 +32,7 @@ pnpm-debug.log*
 **/dist/
 **/.cache/
 **/.eslintcache
+**/project.private.config.json
 
 # Temporary files
 *.tmp

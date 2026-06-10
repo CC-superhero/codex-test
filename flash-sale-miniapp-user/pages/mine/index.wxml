@@ -1,0 +1,38 @@
+<view class="page">
+  <view wx:if="{{userInfo.nickname}}" class="hero">
+    <view class="hero-title">{{userInfo.nickname}}</view>
+    <view class="hero-subtitle">邀请码：{{userInfo.inviteCode}} | 积分：{{userInfo.points || 0}}</view>
+  </view>
+
+  <view wx:else class="card">
+    <view class="section-title">还没有登录</view>
+    <view class="muted" style="margin-bottom: 20rpx;">登录后可查看仓库、优惠券、积分和邀请关系</view>
+    <button class="btn-primary" bindtap="goLogin">去登录</button>
+  </view>
+
+  <view class="card">
+    <view class="section-title">功能入口</view>
+    <view class="row" data-url="/pages/inventory/index" bindtap="goPage" style="padding: 16rpx 0;">
+      <text>我的仓库</text>
+      <text class="muted">></text>
+    </view>
+    <view class="row" data-url="/pages/seller-inventory/index" bindtap="goPage" style="padding: 16rpx 0;">
+      <text>卖家仓库</text>
+      <text class="muted">></text>
+    </view>
+    <view class="row" data-url="/pages/coupons/index" bindtap="goPage" style="padding: 16rpx 0;">
+      <text>我的优惠券</text>
+      <text class="muted">></text>
+    </view>
+    <view class="row" data-url="/pages/points/index" bindtap="goPage" style="padding: 16rpx 0;">
+      <text>积分记录</text>
+      <text class="muted">></text>
+    </view>
+    <view class="row" data-url="/pages/invite/index" bindtap="goPage" style="padding: 16rpx 0;">
+      <text>邀请中心</text>
+      <text class="muted">></text>
+    </view>
+  </view>
+
+  <button wx:if="{{userInfo.nickname}}" class="btn-light" bindtap="handleLogout">退出登录</button>
+</view>
