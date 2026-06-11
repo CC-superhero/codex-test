@@ -1,4 +1,5 @@
 const { getProductList } = require('../../api/product')
+const { requireAuth } = require('../../utils/auth')
 
 Page({
   data: {
@@ -6,6 +7,10 @@ Page({
     loading: false
   },
   onShow() {
+    if (!requireAuth()) {
+      this.setData({ products: [] })
+      return
+    }
     this.fetchProducts()
   },
   onPullDownRefresh() {
@@ -14,6 +19,7 @@ Page({
     })
   },
   async fetchProducts() {
+    if (!requireAuth()) return
     this.setData({ loading: true })
     try {
       const res = await getProductList()
@@ -30,6 +36,7 @@ Page({
     }
   },
   goDetail(event) {
+    if (!requireAuth()) return
     const { id } = event.currentTarget.dataset
     wx.navigateTo({
       url: `/pages/product-detail/index?id=${id}`

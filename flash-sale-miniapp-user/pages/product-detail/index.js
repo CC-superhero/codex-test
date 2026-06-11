@@ -1,5 +1,5 @@
 const { flashBuy, getProductDetail } = require('../../api/product')
-const { requireAuth } = require('../../utils/auth')
+const { getToken, requireAuth } = require('../../utils/auth')
 
 Page({
   data: {
@@ -13,6 +13,10 @@ Page({
     this.setData({ id: Number(options.id) || null })
   },
   onShow() {
+    if (!requireAuth()) {
+      this.setData({ product: {} })
+      return
+    }
     if (this.data.id) {
       this.fetchDetail()
     }
@@ -24,6 +28,7 @@ Page({
     })
   },
   async fetchDetail() {
+    if (!requireAuth()) return
     try {
       const res = await getProductDetail(this.data.id)
       this.setData({ product: res.data || {} })
@@ -62,7 +67,9 @@ Page({
       })
     } finally {
       this.setData({ loading: false })
-      this.fetchDetail()
+      if (getToken() && this.data.id) {
+        this.fetchDetail()
+      }
     }
   }
 })

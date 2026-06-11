@@ -9,6 +9,27 @@ function normalizeError(body, fallbackMessage) {
   }
 }
 
+function handleUnauthorized(body, reject) {
+  clearAuth()
+  wx.showToast({
+    title: '登录已失效',
+    icon: 'none'
+  })
+
+  const pages = getCurrentPages()
+  const currentRoute = pages.length ? pages[pages.length - 1].route : ''
+  if (currentRoute !== 'pages/login/index') {
+    wx.navigateTo({
+      url: '/pages/login/index'
+    })
+  }
+
+  reject({
+    ...normalizeError(body, '登录已失效'),
+    silent: true
+  })
+}
+
 function request({ url, method = 'GET', data, auth = true }) {
   return new Promise((resolve, reject) => {
     const headers = {
@@ -29,29 +50,17 @@ function request({ url, method = 'GET', data, auth = true }) {
       header: headers,
       success(res) {
         const body = res.data || {}
+
+        if (res.statusCode === 401 || res.statusCode === 403 || body.code === 401 || body.code === 403) {
+          handleUnauthorized(body, reject)
+          return
+        }
+
         if (body.code === 200) {
           resolve(body)
           return
         }
-        if (body.code === 401) {
-          clearAuth()
-          wx.showToast({
-            title: '登录已失效',
-            icon: 'none'
-          })
-          const pages = getCurrentPages()
-          const currentRoute = pages.length ? pages[pages.length - 1].route : ''
-          if (currentRoute !== 'pages/login/index') {
-            wx.navigateTo({
-              url: '/pages/login/index'
-            })
-          }
-          reject({
-            ...normalizeError(body, '登录已失效'),
-            silent: true
-          })
-          return
-        }
+
         reject(normalizeError(body, '请求失败'))
       },
       fail(error) {
